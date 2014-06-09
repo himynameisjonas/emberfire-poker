@@ -1,0 +1,9 @@
+<h2>game: {{name}}</h2>
+<p>playing as {{input value=username}}</p>
+
+<h3>online users</h3>
+<ul>
+{{#each user in users}}
+  <li>{{user}}</li>
+{{/each}}
+</ul>

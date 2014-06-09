@@ -1,6 +1,3 @@
-controller = Ember.Controller.extend
-  actions:
-    newVote: ->
-      @store.createRecord('vote', name: 'Jonas Forsberg').save()
+controller = Ember.Controller.extend()
 
 `export default controller`

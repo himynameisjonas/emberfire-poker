@@ -1,5 +1,4 @@
-<h2>Index</h2>
-
-{{#each vote in controller}}
-  {{vote.name}}
-{{/each}}
+<h1>New game</h1>
+Game name: {{input value=gameName}}
+User name: {{input value=userName}}
+<button {{action 'newGame'}}>Go go go</button>
