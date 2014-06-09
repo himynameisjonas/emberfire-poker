@@ -6,6 +6,7 @@ IndexController = Ember.Controller.extend
     newGame: ->
       @user.set('name', @get('userName'))
       @store.createRecord('game', name: @get('gameName')).save().then (game)=>
+        game.reload()
         @transitionToRoute 'game', game
 
 

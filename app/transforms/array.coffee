@@ -4,5 +4,7 @@ Array = DS.Transform.extend
       []
     else
       Ember.keys(serialized).uniq()
+  serialize: ->
+    []
 
 `export default Array`
