@@ -1,4 +1,4 @@
-Array = DS.Transform.extend
+Connections = DS.Transform.extend
   deserialize: (serialized) ->
     if Ember.isEmpty serialized
       []
@@ -7,4 +7,4 @@ Array = DS.Transform.extend
   serialize: ->
     []
 
-`export default Array`
+`export default Connections`

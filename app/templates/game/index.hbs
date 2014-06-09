@@ -7,3 +7,16 @@
   <li>{{user}}</li>
 {{/each}}
 </ul>
+
+
+<h3>Vote!</h3>
+{{#each value in voteValues}}
+  <button {{action "vote" value}}>{{value}}</button>
+{{/each}}
+
+
+<ul>
+{{#each vote in votes}}
+  <li>{{vote.value}} - {{vote.username}}</li>
+{{/each}}
+</ul>
