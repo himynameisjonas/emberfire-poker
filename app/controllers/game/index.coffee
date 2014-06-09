@@ -1,5 +1,8 @@
 GameIndexController = Ember.ObjectController.extend
   username: Ember.computed.alias('user.name')
+  hasVoted: (->
+    @get('model.votes').mapBy('username').contains @get('username')
+  ).property('model.votes.@each.username', 'username')
 
   actions:
     vote: (value)->

@@ -11,11 +11,15 @@
 <button {{action 'resetVotes'}}>Reset votes</button>
 
 
-<h3>Vote!</h3>
-{{#each value in voteValues}}
-  <button {{action "vote" value}}>{{value}}</button>
-{{/each}}
 
+<h3>Vote!</h3>
+{{#if hasVoted}}
+<p>Already voted...</p>
+{{else}}
+  {{#each value in voteValues}}
+    <button {{action "vote" value}}>{{value}}</button>
+  {{/each}}
+{{/if}}
 
 <ul>
 {{#each vote in votes}}
