@@ -8,10 +8,11 @@ Game = DS.Model.extend
   userAndVotes: (->
     mapped = @get('votes').map (vote)->
       UserVote.create username: vote.get('username'), vote: vote
-    return mapped if Ember.isEmpty @get('users')
-    @get('users').forEach (user)->
-      mapped.pushObject(UserVote.create username: user) unless mapped.mapBy('username').contains(user)
-    mapped
+    unless Ember.isEmpty @get('users')
+      @get('users').forEach (user)->
+        mapped.pushObject(UserVote.create username: user) unless mapped.mapBy('username').contains(user)
+
+    mapped.sortBy('username')
   ).property('votes.@each.username', 'users.[]')
 
   voteValues: [0,'½', 1, 2, 3, 5, 8, 13, 20, 40, 100, '?']
