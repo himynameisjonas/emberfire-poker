@@ -11,10 +11,15 @@ GameIndexController = Ember.ObjectController.extend
       vote.save()
       @get('model').save()
     resetVotes: ->
+      @set 'model.showResult', false
+      @get('model').save()
       votes = @get('model.votes')
       votes.toArray().forEach (vote)->
         vote.destroyRecord()
         votes.removeObject(vote)
+      @get('model').save()
+    showResult: ->
+      @set 'model.showResult', true
       @get('model').save()
 
 
