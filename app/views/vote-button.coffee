@@ -5,7 +5,7 @@ VoteButtonView = Ember.View.extend
   active: (->
     return false if Ember.isEmpty @get('controller.vote.value')
     @get('controller.vote.value').toString() == @get('value').toString()
-  ).property('controller.vote', 'value')
+  ).property('controller.vote.value', 'value')
   template: Ember.Handlebars.compile('{{view.value}}')
   click: ->
     @get('controller').send 'vote', @get('value')
