@@ -8,6 +8,7 @@ Game = DS.Model.extend
   userAndVotes: (->
     mapped = @get('votes').map (vote)->
       UserVote.create username: vote.get('username'), vote: vote
+    return mapped if Ember.isEmpty @get('users')
     @get('users').forEach (user)->
       mapped.pushObject(UserVote.create username: user) unless mapped.mapBy('username').contains(user)
     mapped
