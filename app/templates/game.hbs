@@ -1,3 +1,14 @@
+{{#if showInfo}}
+  <div class="row" {{action 'hideInfo'}}>
+    <div class="col-md-6 col-md-offset-3">
+      <div class="alert alert-info alert-dismissable">
+        <button type="button" class="close" aria-hidden="true">&times;</button>
+        <strong>Invite the team!</strong> Share the URL to this page to invite your team mates.
+      </div>
+    </div>
+  </div>
+{{/if}}
+
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <h3><small>Planning</small> {{name}}</h3>
