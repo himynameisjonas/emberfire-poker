@@ -1,0 +1,7 @@
+<h2>game: {{name}}</h2>
+{{#if username}}
+  {{outlet}}
+{{else}}
+  <h2>Your name</h2>
+  {{input value=newName action="newName"}}
+{{/if}}
