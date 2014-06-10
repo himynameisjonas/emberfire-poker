@@ -10,5 +10,4 @@ VoteButtonView = Ember.View.extend
   click: ->
     @get('controller').send 'vote', @get('value')
 
-
 `export default VoteButtonView;`
