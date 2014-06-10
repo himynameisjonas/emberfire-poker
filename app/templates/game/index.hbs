@@ -37,7 +37,7 @@
     <div class="row">
       {{#each value in voteValues}}
         <div class="col-md-4 col-xs-6">
-          <button class="btn btn-block btn-primary" {{action "vote" value}}>{{value}}</button>
+          {{view 'vote-button' value=value}}
         </div>
       {{/each}}
     </div>
