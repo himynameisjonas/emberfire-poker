@@ -1,5 +1,5 @@
 Router = Ember.Router.extend
-  location: ENV.locationType
+  location: PokerENV.locationType
 
 Router.map ->
   @resource 'game', path: 'game/:id', ->
