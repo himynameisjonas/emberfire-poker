@@ -1,7 +1,18 @@
-<h2>game: {{name}}</h2>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h2><small>Game</small> {{name}}</h2>
+  </div>
+</div>
+
 {{#if username}}
   {{outlet}}
 {{else}}
-  <h2>Your name</h2>
-  {{input value=newName action="newName"}}
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="form-group">
+        {{input value=newName action="newName" class="form-control" placeholder="Your name"}}
+      </div>
+      <button {{action 'newName'}} class="btn btn-default btn-block">Join game</button>
+    </div>
+  </div>
 {{/if}}

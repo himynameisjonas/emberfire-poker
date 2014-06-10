@@ -1,30 +1,45 @@
-<p>Playing as {{username}}</p>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <ul class="list-group">
+    {{#each userVote in userAndVotes}}
+      <li class="list-group-item">
+        <span class="badge text-primary">
+          {{#if showResult}}
+            {{userVote.value}}
+          {{else}}
+            {{#if userVote.hasVoted}}
+              <i class="fa fa-fw fa-check"></i>
+            {{else}}
+              <i class="fa fa-fw fa-question"></i>
+            {{/if}}
+          {{/if}}
+        </span>
+        {{userVote.username}}
+      </li>
+    {{/each}}
+  </div>
+</div>
+<div class="row" style="margin-bottom: 20px">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="row">
+      <div class="col-md-6">
+        <button class="btn btn-block btn-info" {{action 'showResult'}}>Show Result</button>
+      </div>
+      <div class="col-md-6">
+        <button class="btn btn-block btn-danger" {{action 'resetVotes'}}>Reset votes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-<hr>
-  {{#each userVote in userAndVotes}}
-    {{userVote.username}}
-    {{#if showResult}}
-      {{userVote.value}}
-    {{else}}
-      {{#if userVote.hasVoted}}
-        yes
-      {{else}}
-        no
-      {{/if}}
-    {{/if}}
-  {{/each}}
-<hr>
-
-
-<button {{action 'resetVotes'}}>Reset votes</button>
-<button {{action 'showResult'}}>Show Result</button>
-
-
-<h3>Vote!</h3>
-{{#if hasVoted}}
-<p>Already voted...</p>
-{{else}}
-  {{#each value in voteValues}}
-    <button {{action "vote" value}}>{{value}}</button>
-  {{/each}}
-{{/if}}
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="row">
+      {{#each value in voteValues}}
+        <div class="col-md-4 col-xs-6">
+          <button class="btn btn-block btn-primary" {{action "vote" value}}>{{value}}</button>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</div>

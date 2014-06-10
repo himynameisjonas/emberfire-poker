@@ -1,4 +1,11 @@
-<h1>New game</h1>
-Game name: {{input value=gameName}}
-User name: {{input value=userName}}
-<button {{action 'newGame'}}>Go go go</button>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="form-group">
+      {{input value=gameName class="form-control" placeholder="Game Name"}}
+    </div>
+    <div class="form-group">
+      {{input value=userName class="form-control" placeholder="Your Name"}}
+    </div>
+    <button class="btn btn-primary btn-block" {{action 'newGame'}}>Create new Game</button>
+  </div>
+</div>
