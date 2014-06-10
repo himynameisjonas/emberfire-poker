@@ -3,13 +3,20 @@ GameIndexController = Ember.ObjectController.extend
   hasVoted: (->
     @get('model.votes').mapBy('username').contains @get('username')
   ).property('model.votes.@each.username', 'username')
+  vote: (->
+    @get('model.votes').findBy('username', @get('username'))
+  ).property('model.votes.@each.username', 'username')
 
   actions:
     vote: (value)->
-      vote = @store.createRecord('vote', value: value, username: @user.get('name'))
-      @get('model.votes').addObject vote
-      vote.save()
-      @get('model').save()
+      if @get('hasVoted')
+        @set('vote.value', value)
+        @get('vote').save()
+      else
+        vote = @store.createRecord('vote', value: value, username: @user.get('name'))
+        @get('model.votes').addObject vote
+        vote.save()
+        @get('model').save()
     resetVotes: ->
       @set 'model.showResult', false
       @get('model').save()
