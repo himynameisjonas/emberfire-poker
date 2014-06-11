@@ -15,6 +15,6 @@ Game = DS.Model.extend
     mapped.sortBy('username')
   ).property('votes.@each.username', 'users.[]')
 
-  voteValues: [0,'½', 1, 2, 3, 5, 8, 13, 20, 40, 100, '?']
+  voteValues: [0,'½', 1, 2, 3, 5, 8, 13, 21, 40, 100, '?']
 
 `export default Game`
